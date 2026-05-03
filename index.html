@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himavanth Reddy N | Talent Acquisition Lead</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #f5f5f0;
+            --gray-100: #e8e8e3;
+            --gray-300: #b0b0a8;
+            --gray-500: #6e6e68;
+            --gray-700: #3a3a36;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Mono', monospace; background: var(--white); color: var(--black); font-size: 14px; line-height: 1.6; }
+        header { background: var(--black); color: var(--white); padding: 5rem 4rem 4rem; position: relative; overflow: hidden; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        header::before { content: "TA"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-family: 'Playfair Display', serif; font-size: 22rem; font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none; letter-spacing: -0.05em; white-space: nowrap; }
+        .header-tag { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-300); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; justify-content: center; }
+        .header-tag::before { content: "—"; color: var(--gray-500); }
+        .header-tag::after { content: "—"; color: var(--gray-500); }
+        header h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 900; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 1.5rem; text-align: center; }
+        .header-sub { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-300); display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+        .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gray-500); }
+        .page { max-width: 960px; margin: 0 auto; }
+        .section { padding: 3rem 4rem; border-bottom: 1px solid var(--gray-100); }
+        .section-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-300); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+        .section-label::after { content: ""; flex: 1; height: 1px; background: var(--gray-100); }
+        .summary-text { font-family: 'Playfair Display', serif; font-size: 1.15rem; line-height: 1.8; color: var(--gray-700); }
+        .summary-text strong { color: var(--black); font-weight: 700; }
+        .metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--gray-100); }
+        .metric { padding: 2rem 1.5rem; border-right: 1px solid var(--gray-100); text-align: center; }
+        .metric:last-child { border-right: none; }
+        .metric-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; line-height: 1; margin-bottom: 0.4rem; letter-spacing: -0.03em; }
+        .metric-lbl { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-500); }
+        .achievement { padding: 1.75rem 0; border-bottom: 1px solid var(--gray-100); display: grid; grid-template-columns: 2.5rem 1fr; gap: 1.5rem; align-items: start; }
+        .achievement:last-child { border-bottom: none; }
+        .ach-num { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--gray-300); padding-top: 0.1rem; }
+        .ach-title { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; margin-bottom: 0.4rem; text-transform: uppercase; color: var(--black); }
+        .ach-desc { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
+        .skill-group h3 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--black); }
+        .skill-list { list-style: none; }
+        .skill-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--gray-100); font-size: 13px; color: var(--gray-700); display: flex; align-items: center; gap: 0.75rem; }
+        .skill-list li::before { content: "→"; color: var(--gray-300); font-size: 12px; flex-shrink: 0; }
+        .skill-list li:last-child { border-bottom: none; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag { font-size: 11px; padding: 0.35rem 0.8rem; border: 1px solid var(--gray-100); color: var(--gray-700); letter-spacing: 0.04em; transition: all 0.15s; cursor: default; }
+        .tag:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+        .cert-item { padding: 1.1rem 0; border-bottom: 1px solid var(--gray-100); display: grid; grid-template-columns: 1.5rem 1fr; gap: 1rem; align-items: start; }
+        .cert-item:last-child { border-bottom: none; }
+        .cert-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--black); margin-top: 0.45rem; }
+        .cert-name { font-size: 13px; color: var(--black); margin-bottom: 0.2rem; font-weight: 500; line-height: 1.4; }
+        .cert-issuer { font-size: 11px; color: var(--gray-500); letter-spacing: 0.05em; }
+        .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 3rem; }
+        .contact-item { display: flex; flex-direction: column; gap: 0.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-100); }
+        .contact-type { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-300); }
+        .contact-val { font-size: 13px; color: var(--black); word-break: break-all; }
+        .contact-val a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--gray-100); transition: border-color 0.2s; }
+        .contact-val a:hover { border-color: var(--black); }
+        footer { background: var(--black); color: var(--gray-500); padding: 1.5rem 4rem; font-size: 11px; letter-spacing: 0.1em; text-align: center; }
+        @media (max-width: 768px) {
+            header { padding: 3rem 2rem 2.5rem; }
+            header::before { display: none; }
+            .section { padding: 2.5rem 2rem; }
+            .metrics-row { grid-template-columns: repeat(2, 1fr); }
+            .metric:nth-child(2) { border-right: none; }
+            .contact-grid { grid-template-columns: 1fr; }
+            footer { padding: 1.5rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-tag">Portfolio &nbsp;·&nbsp; Talent Acquisition</div>
+        <h1>Himavanth Reddy N</h1>
+        <div class="header-sub">
+            <span>Talent Acquisition Lead</span>
+            <div class="dot"></div>
+            <span>4.5+ Years Experience</span>
+            <div class="dot"></div>
+            <span>Hyderabad, India</span>
+        </div>
+    </header>
+
+    <div class="page">
+
+        <!-- METRICS BAR -->
+        <div class="metrics-row">
+            <div class="metric"><div class="metric-num">4.5+</div><div class="metric-lbl">Years Exp.</div></div>
+            <div class="metric"><div class="metric-num">4</div><div class="metric-lbl">Team Led</div></div>
+            <div class="metric"><div class="metric-num">3+</div><div class="metric-lbl">ATS Tools</div></div>
+            <div class="metric"><div class="metric-num">45+</div><div class="metric-lbl">Placements</div></div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="section">
+            <div class="section-label">Summary</div>
+            <p class="summary-text">Strategic Talent Acquisition Specialist with <strong>4.5+ years</strong> of progressive experience in full-lifecycle recruitment and human capital operations. Currently leading a team of <strong>4 recruiters</strong> at <strong>Genisis Technology Solutions Pvt Ltd</strong>, aligning talent pipelines with organizational objectives through data-driven sourcing and structured onboarding frameworks.</p>
+        </div>
+
+        <!-- KEY ACHIEVEMENTS -->
+        <div class="section">
+            <div class="section-label">Key Achievements</div>
+            <div class="achievement">
+                <div class="ach-num">01</div>
+                <div><div class="ach-title">AI-Powered Recruitment Optimization</div><div class="ach-desc">Pioneered integration of Claude & Skima AI to automate candidate filtering and resume screening, significantly reducing manual review time while maintaining high-quality profile submissions.</div></div>
+            </div>
+            <div class="achievement">
+                <div class="ach-num">02</div>
+                <div><div class="ach-title">Team Leadership & Performance Management</div><div class="ach-desc">Led and mentored a team of 4 recruiters, allocating requisitions strategically, monitoring metrics, and ensuring consistent SLA adherence across multiple client accounts.</div></div>
+            </div>
+            <div class="achievement">
+                <div class="ach-num">03</div>
+                <div><div class="ach-title">Multi-ATS Platform Mastery</div><div class="ach-desc">Demonstrated expertise across ClearCo, Pinpoint, and Bullhorn for seamless requisition tracking, candidate management, and pipeline optimization enabling efficient multi-client coordination.</div></div>
+            </div>
+            <div class="achievement">
+                <div class="ach-num">04</div>
+                <div><div class="ach-title">High-Quality Candidate Pipeline</div><div class="ach-desc">Maintained exceptional profile-to-shortlist ratio through quality-first submissions, reducing client turnaround time and improving offer acceptance rates with minimal last-minute withdrawals.</div></div>
+            </div>
+            <div class="achievement">
+                <div class="ach-num">05</div>
+                <div><div class="ach-title">End-to-End Recruitment Excellence</div><div class="ach-desc">Managed complete recruitment lifecycle from sourcing to onboarding — offer negotiations, background verification, and asset logistics — ensuring zero fallouts and consistent target achievement.</div></div>
+            </div>
+        </div>
+
+        <!-- RECRUITMENT -->
+        <div class="section">
+            <div class="section-label">Recruitment</div>
+            <div class="skill-group">
+                <ul class="skill-list">
+                    <li>Full-cycle recruitment</li>
+                    <li>Multi-channel sourcing (Naukri, LinkedIn, Foundit, Indeed)</li>
+                    <li>Boolean search techniques</li>
+                    <li>Talent mapping & pipelining</li>
+                    <li>Structured screening & candidate assessment</li>
+                    <li>Job description creation & optimization</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TOOLS & TECH -->
+        <div class="section">
+            <div class="section-label">Tools & Tech</div>
+            <div class="skill-group">
+                <ul class="skill-list">
+                    <li>ATS: ClearCo, Pinpoint, Bullhorn, Zoho Recruit</li>
+                    <li>Sourcing: LinkedIn Recruiter, Naukri, Foundit, Indeed</li>
+                    <li>AI Tools: Claude AI, Skima AI</li>
+                    <li>Vendor Management System (VMS)</li>
+                    <li>HRMS & Data Analytics platforms</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LEADERSHIP -->
+        <div class="section">
+            <div class="section-label">Leadership</div>
+            <div class="skill-group">
+                <ul class="skill-list">
+                    <li>Team leadership & mentoring (4 recruiters)</li>
+                    <li>Stakeholder & client management</li>
+                    <li>SLA adherence & performance monitoring</li>
+                    <li>Requisition allocation & workload planning</li>
+                    <li>Offer negotiation & candidate relationship management</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- OPERATIONS -->
+        <div class="section">
+            <div class="section-label">Operations</div>
+            <div class="skill-group">
+                <ul class="skill-list">
+                    <li>Candidate onboarding & documentation</li>
+                    <li>Compliance standards enforcement</li>
+                    <li>Background verification coordination</li>
+                    <li>Employee engagement initiatives</li>
+                    <li>Pipeline reporting & tracking</li>
+                    <li>Asset logistics management</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TOOLS (TAGS) -->
+        <div class="section">
+            <div class="section-label">Tools</div>
+            <div class="tags">
+                <span class="tag">Naukri</span>
+                <span class="tag">Foundit</span>
+                <span class="tag">Indeed</span>
+                <span class="tag">LinkedIn Recruiter</span>
+                <span class="tag">Bullhorn</span>
+                <span class="tag">ClearCo</span>
+                <span class="tag">Pinpoint</span>
+                <span class="tag">Zoho Recruit</span>
+                <span class="tag">Claude AI</span>
+                <span class="tag">Skima AI</span>
+                <span class="tag">VMS</span>
+                <span class="tag">HRMS</span>
+                <span class="tag">MS Excel</span>
+                <span class="tag">Google Sheets</span>
+            </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <div class="section">
+            <div class="section-label">Certifications</div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div><div class="cert-name">American Staffing Association</div><div class="cert-issuer">Certificate of Completion</div></div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div><div class="cert-name">Using AI to Improve HR Practices</div><div class="cert-issuer">LinkedIn Learning</div></div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div><div class="cert-name">Excel with LinkedIn Recruiter</div><div class="cert-issuer">Assessment · Skilljar</div></div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div><div class="cert-name">Human Resources: Payroll</div><div class="cert-issuer">LinkedIn Learning</div></div>
+            </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="section">
+            <div class="section-label">Contact</div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span class="contact-type">Email</span>
+                    <span class="contact-val"><a href="mailto:himavanth33345@gmail.com">himavanth33345@gmail.com</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-type">Phone</span>
+                    <span class="contact-val"><a href="tel:+919010319166">+91 90103 19166</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-type">LinkedIn</span>
+                    <span class="contact-val"><a href="https://linkedin.com/in/himavanth-reddy-n-068117b9" target="_blank">linkedin.com/in/himavanth-reddy-n-068117b9</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-type">Location</span>
+                    <span class="contact-val">Hyderabad, Telangana, India</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>Himavanth Reddy N &nbsp;·&nbsp; Talent Acquisition Lead &nbsp;·&nbsp; Hyderabad, India</footer>
+</body>
+</html>
